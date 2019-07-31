@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.algorithmdb"
+    },
+    "jhipsterVersion": "6.1.2",
+    "applicationType": "monolith",
+    "baseName": "algorithmdb",
+    "packageName": "com.algorithmdb",
+    "packageFolder": "com/algorithmdb",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZjY2MmMyZDQzZDk3N2YzNWRhZjJiZTFiN2I4ZDY0Zjk0ZmM4NTJmMjNkZTIwODZhZmMyMjNmNjIyYmMzYTlhNmNhYWJhYzliMmQ3ZmFkYzQ3ZWFjYjBhMDBjNDg3ODMzZWYzMDVlZGE3OTNjYzI0YzJiZDc1ZjE3Y2QzNWQyNzQ=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": ["protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}
