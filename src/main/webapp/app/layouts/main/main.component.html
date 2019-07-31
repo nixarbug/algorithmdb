@@ -3,7 +3,24 @@
     <router-outlet name="navbar"></router-outlet>
 </div>
 <div class="container-fluid">
-    <div class="card jh-card">
+    <div class="container-fluid" id="banner">
+        <div class="container search-box">
+            <input id="field-search" placeholder="Search | algorithm, problem, author, tag" type="text">
+            <button id="btn-search"><fa-icon icon="search"></fa-icon></button>
+            <div class="tags">
+                <a class="tag" href="#">Search</a>
+                <a class="tag" href="#">Sort</a>
+                <a class="tag" href="#">Combinatorial</a>
+                <a class="tag" href="#">Graph</a>
+            </div>
+            <div class="tags next-line">
+                <a class="tag" href="#">Optimization</a>
+                <a class="tag" href="#">Numerical</a>
+                <a class="tag" href="#">Shortest Path</a>
+            </div>
+        </div>
+    </div>
+    <div class="card jh-card container">
         <router-outlet></router-outlet>
         <router-outlet name="popup"></router-outlet>
     </div>

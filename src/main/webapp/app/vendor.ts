@@ -42,6 +42,12 @@ import {
   faHome
 } from '@fortawesome/free-solid-svg-icons';
 
+import { faTwitter, faGithub, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
+library.add(faTwitter);
+library.add(faGithub);
+library.add(faLinkedin);
+library.add(faFacebook);
+
 // Adds the SVG icon to the library so you can use it in your page
 library.add(faUser);
 library.add(faSort);

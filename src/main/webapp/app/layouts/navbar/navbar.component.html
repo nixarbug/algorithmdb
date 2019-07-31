@@ -1,21 +1,22 @@
-<nav class="navbar navbar-dark navbar-expand-md bg-dark">
+<nav class="navbar navbar-light navbar-expand-md bg-light container">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
         <span class="logo-img"></span>
-        <span class="navbar-title">Algorithmdb</span> <span class="navbar-version">{{version}}</span>
+        <span class="navbar-title">algorithmdb</span>
+<!--        <span class="navbar-version">{{version}}</span>-->
     </a>
     <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
         <fa-icon icon="bars"></fa-icon>
     </a>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
-                    <span>
-                        <fa-icon icon="home"></fa-icon>
-                        <span>Home</span>
-                    </span>
-                </a>
-            </li>
+<!--            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
+<!--                <a class="nav-link" routerLink="/" (click)="collapseNavbar()">-->
+<!--                    <span>-->
+<!--                        <fa-icon icon="home"></fa-icon>-->
+<!--                        <span>Home</span>-->
+<!--                    </span>-->
+<!--                </a>-->
+<!--            </li>-->
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
