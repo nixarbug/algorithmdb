@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="implementation">
+            <h2><span>Implementation</span> {{implementation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{implementation.name}}</span>
+                </dd>
+                <dt><span>Code</span></dt>
+                <dd>
+                    <span>{{implementation.code}}</span>
+                </dd>
+                <dt><span>Note</span></dt>
+                <dd>
+                    <span>{{implementation.note}}</span>
+                </dd>
+                <dt><span>Date Created</span></dt>
+                <dd>
+                    <span>{{implementation.dateCreated}}</span>
+                </dd>
+                <dt><span>Date Updated</span></dt>
+                <dd>
+                    <span>{{implementation.dateUpdated}}</span>
+                </dd>
+                <dt><span>Language</span></dt>
+                <dd>
+                    <div *ngIf="implementation.language">
+                        <a [routerLink]="['/language', implementation.language?.id, 'view']">{{implementation.language?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span>Algorithm</span></dt>
+                <dd>
+                    <div *ngIf="implementation.algorithm">
+                        <a [routerLink]="['/algorithm', implementation.algorithm?.id, 'view']">{{implementation.algorithm?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/implementation', implementation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

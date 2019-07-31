@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Algorithm.
+    -->
+    <changeSet id="20190731093303-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="worst_case_complexity_id"
+                                 baseTableName="algorithm"
+                                 constraintName="fk_algorithm_worst_case_complexity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="function_class"/>
+
+        <addForeignKeyConstraint baseColumnNames="average_case_complexity_id"
+                                 baseTableName="algorithm"
+                                 constraintName="fk_algorithm_average_case_complexity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="function_class"/>
+
+        <addForeignKeyConstraint baseColumnNames="best_case_complexity_id"
+                                 baseTableName="algorithm"
+                                 constraintName="fk_algorithm_best_case_complexity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="function_class"/>
+
+        <addForeignKeyConstraint baseColumnNames="algorithm_id"
+                                 baseTableName="algorithm_author"
+                                 constraintName="fk_algorithm_author_algorithm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="algorithm"/>
+
+        <addForeignKeyConstraint baseColumnNames="author_id"
+                                 baseTableName="algorithm_author"
+                                 constraintName="fk_algorithm_author_author_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="author"/>
+        
+        <addForeignKeyConstraint baseColumnNames="algorithm_id"
+                                 baseTableName="algorithm_tag"
+                                 constraintName="fk_algorithm_tag_algorithm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="algorithm"/>
+
+        <addForeignKeyConstraint baseColumnNames="tag_id"
+                                 baseTableName="algorithm_tag"
+                                 constraintName="fk_algorithm_tag_tag_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tag"/>
+        
+        <addForeignKeyConstraint baseColumnNames="algorithm_id"
+                                 baseTableName="algorithm_problem"
+                                 constraintName="fk_algorithm_problem_algorithm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="algorithm"/>
+
+        <addForeignKeyConstraint baseColumnNames="problem_id"
+                                 baseTableName="algorithm_problem"
+                                 constraintName="fk_algorithm_problem_problem_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="problem"/>
+        
+    </changeSet>
+</databaseChangeLog>

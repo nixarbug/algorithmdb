@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="problem">
+            <h2><span>Problem</span> {{problem.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{problem.name}}</span>
+                </dd>
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{problem.description}}</span>
+                </dd>
+                <dt><span>Date Created</span></dt>
+                <dd>
+                    <span>{{problem.dateCreated}}</span>
+                </dd>
+                <dt><span>Date Updated</span></dt>
+                <dd>
+                    <span>{{problem.dateUpdated}}</span>
+                </dd>
+                <dt><span>Problem Group</span></dt>
+                <dd>
+                    <span *ngFor="let problemGroup of problem.problemGroups; let last = last">
+                        <a [routerLink]="['/problem-group', problemGroup?.id, 'view' ]">{{problemGroup.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/problem', problem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

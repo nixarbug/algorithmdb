@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span>Implementations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-implementation" [routerLink]="['/implementation/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Implementation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="implementations?.length === 0">
+        <span>No implementations found</span>
+    </div>
+    <div class="table-responsive" *ngIf="implementations?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="code"><span>Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="note"><span>Note</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateCreated"><span>Date Created</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateUpdated"><span>Date Updated</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="language.name"><span>Language</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="algorithm.name"><span>Algorithm</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let implementation of implementations ;trackBy: trackId">
+                <td><a [routerLink]="['/implementation', implementation.id, 'view' ]">{{implementation.id}}</a></td>
+                <td>{{implementation.name}}</td>
+                <td>{{implementation.code}}</td>
+                <td>{{implementation.note}}</td>
+                <td>{{implementation.dateCreated | date:'medium'}}</td>
+                <td>{{implementation.dateUpdated | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="implementation.language">
+                        <a [routerLink]="['../language', implementation.language?.id, 'view' ]" >{{implementation.language?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="implementation.algorithm">
+                        <a [routerLink]="['../algorithm', implementation.algorithm?.id, 'view' ]" >{{implementation.algorithm?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/implementation', implementation.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/implementation', implementation.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'implementation', { outlets: { popup: implementation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="implementations?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="algorithm">
+            <h2><span>Algorithm</span> {{algorithm.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{algorithm.name}}</span>
+                </dd>
+                <dt><span>Input</span></dt>
+                <dd>
+                    <span>{{algorithm.input}}</span>
+                </dd>
+                <dt><span>Output</span></dt>
+                <dd>
+                    <span>{{algorithm.output}}</span>
+                </dd>
+                <dt><span>Idea</span></dt>
+                <dd>
+                    <span>{{algorithm.idea}}</span>
+                </dd>
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{algorithm.description}}</span>
+                </dd>
+                <dt><span>Real Life Use</span></dt>
+                <dd>
+                    <span>{{algorithm.realLifeUse}}</span>
+                </dd>
+                <dt><span>Pseudocode</span></dt>
+                <dd>
+                    <span>{{algorithm.pseudocode}}</span>
+                </dd>
+                <dt><span>Flowchart</span></dt>
+                <dd>
+                    <span>{{algorithm.flowchart}}</span>
+                </dd>
+                <dt><span>Flowchart Image</span></dt>
+                <dd>
+                    <div *ngIf="algorithm.flowchartImage">
+                        <a (click)="openFile(algorithm.flowchartImageContentType, algorithm.flowchartImage)">
+                            <img [src]="'data:' + algorithm.flowchartImageContentType + ';base64,' + algorithm.flowchartImage" style="max-width: 100%;" alt="algorithm image"/>
+                        </a>
+                        {{algorithm.flowchartImageContentType}}, {{byteSize(algorithm.flowchartImage)}}
+                    </div>
+                </dd>
+                <dt><span>Complexity Analysis</span></dt>
+                <dd>
+                    <span>{{algorithm.complexityAnalysis}}</span>
+                </dd>
+                <dt><span>Correctness Proof</span></dt>
+                <dd>
+                    <span>{{algorithm.correctnessProof}}</span>
+                </dd>
+                <dt><span>Average Stars</span></dt>
+                <dd>
+                    <span>{{algorithm.averageStars}}</span>
+                </dd>
+                <dt><span>Total Favs</span></dt>
+                <dd>
+                    <span>{{algorithm.totalFavs}}</span>
+                </dd>
+                <dt><span>Weighted Rating</span></dt>
+                <dd>
+                    <span>{{algorithm.weightedRating}}</span>
+                </dd>
+                <dt><span>Date Created</span></dt>
+                <dd>
+                    <span>{{algorithm.dateCreated}}</span>
+                </dd>
+                <dt><span>Date Updated</span></dt>
+                <dd>
+                    <span>{{algorithm.dateUpdated}}</span>
+                </dd>
+                <dt><span>Worst Case Complexity</span></dt>
+                <dd>
+                    <div *ngIf="algorithm.worstCaseComplexity">
+                        <a [routerLink]="['/function-class', algorithm.worstCaseComplexity?.id, 'view']">{{algorithm.worstCaseComplexity?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Average Case Complexity</span></dt>
+                <dd>
+                    <div *ngIf="algorithm.averageCaseComplexity">
+                        <a [routerLink]="['/function-class', algorithm.averageCaseComplexity?.id, 'view']">{{algorithm.averageCaseComplexity?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Best Case Complexity</span></dt>
+                <dd>
+                    <div *ngIf="algorithm.bestCaseComplexity">
+                        <a [routerLink]="['/function-class', algorithm.bestCaseComplexity?.id, 'view']">{{algorithm.bestCaseComplexity?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Author</span></dt>
+                <dd>
+                    <span *ngFor="let author of algorithm.authors; let last = last">
+                        <a [routerLink]="['/author', author?.id, 'view' ]">{{author.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Tag</span></dt>
+                <dd>
+                    <span *ngFor="let tag of algorithm.tags; let last = last">
+                        <a [routerLink]="['/tag', tag?.id, 'view' ]">{{tag.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Problem</span></dt>
+                <dd>
+                    <span *ngFor="let problem of algorithm.problems; let last = last">
+                        <a [routerLink]="['/problem', problem?.id, 'view' ]">{{problem.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/algorithm', algorithm.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

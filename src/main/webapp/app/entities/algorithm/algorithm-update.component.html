@@ -1,0 +1,209 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-algorithm-heading">Create or edit a Algorithm</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name').invalid && (editForm.get('name').dirty || editForm.get('name').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name').errors.minlength">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name').errors.maxlength">
+                        This field cannot be longer than 250 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_input">Input</label>
+                    <input type="text" class="form-control" name="input" id="field_input"
+                           formControlName="input"/>
+                    <div *ngIf="editForm.get('input').invalid && (editForm.get('input').dirty || editForm.get('input').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('input').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('input').errors.minlength">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('input').errors.maxlength">
+                        This field cannot be longer than 500 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_output">Output</label>
+                    <input type="text" class="form-control" name="output" id="field_output"
+                           formControlName="output"/>
+                    <div *ngIf="editForm.get('output').invalid && (editForm.get('output').dirty || editForm.get('output').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('output').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('output').errors.minlength">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('output').errors.maxlength">
+                        This field cannot be longer than 500 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idea">Idea</label>
+                    <textarea class="form-control" name="idea" id="field_idea"
+                              formControlName="idea"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <textarea class="form-control" name="description" id="field_description"
+                              formControlName="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_realLifeUse">Real Life Use</label>
+                    <textarea class="form-control" name="realLifeUse" id="field_realLifeUse"
+                              formControlName="realLifeUse"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pseudocode">Pseudocode</label>
+                    <textarea class="form-control" name="pseudocode" id="field_pseudocode"
+                              formControlName="pseudocode"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_flowchart">Flowchart</label>
+                    <textarea class="form-control" name="flowchart" id="field_flowchart"
+                              formControlName="flowchart"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_flowchartImage">Flowchart Image</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('flowchartImageContentType').value + ';base64,' + editForm.get('flowchartImage').value" style="max-height: 100px;" *ngIf="editForm.get('flowchartImage').value" alt="algorithm image"/>
+                        <div *ngIf="editForm.get('flowchartImage').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('flowchartImageContentType').value}}, {{byteSize(editForm.get('flowchartImage').value)}}</span>
+                            <button type="button" (click)="clearInputImage('flowchartImage', 'flowchartImageContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_flowchartImage" (change)="setFileData($event, 'flowchartImage', true)" accept="image/*"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="flowchartImage" id="field_flowchartImage"
+                           formControlName="flowchartImage"/>
+                    <input type="hidden" class="form-control" name="flowchartImageContentType" id="field_flowchartImageContentType"
+                           formControlName="flowchartImageContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_complexityAnalysis">Complexity Analysis</label>
+                    <textarea class="form-control" name="complexityAnalysis" id="field_complexityAnalysis"
+                              formControlName="complexityAnalysis"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_correctnessProof">Correctness Proof</label>
+                    <textarea class="form-control" name="correctnessProof" id="field_correctnessProof"
+                              formControlName="correctnessProof"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_averageStars">Average Stars</label>
+                    <input type="number" class="form-control" name="averageStars" id="field_averageStars"
+                           formControlName="averageStars"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalFavs">Total Favs</label>
+                    <input type="number" class="form-control" name="totalFavs" id="field_totalFavs"
+                           formControlName="totalFavs"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_weightedRating">Weighted Rating</label>
+                    <input type="number" class="form-control" name="weightedRating" id="field_weightedRating"
+                           formControlName="weightedRating"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateCreated">Date Created</label>
+                    <div class="d-flex">
+                        <input id="field_dateCreated" type="datetime-local" class="form-control" name="dateCreated" formControlName="dateCreated" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateCreated').invalid && (editForm.get('dateCreated').dirty || editForm.get('dateCreated').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateCreated').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateCreated').errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateUpdated">Date Updated</label>
+                    <div class="d-flex">
+                        <input id="field_dateUpdated" type="datetime-local" class="form-control" name="dateUpdated" formControlName="dateUpdated" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_worstCaseComplexity">Worst Case Complexity</label>
+                    <select class="form-control" id="field_worstCaseComplexity" name="worstCaseComplexity" formControlName="worstCaseComplexity">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="functionClassOption.id === editForm.get('worstCaseComplexity').value?.id ? editForm.get('worstCaseComplexity').value : functionClassOption" *ngFor="let functionClassOption of functionclasses; trackBy: trackFunctionClassById">{{functionClassOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_averageCaseComplexity">Average Case Complexity</label>
+                    <select class="form-control" id="field_averageCaseComplexity" name="averageCaseComplexity" formControlName="averageCaseComplexity">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="functionClassOption.id === editForm.get('averageCaseComplexity').value?.id ? editForm.get('averageCaseComplexity').value : functionClassOption" *ngFor="let functionClassOption of functionclasses; trackBy: trackFunctionClassById">{{functionClassOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_bestCaseComplexity">Best Case Complexity</label>
+                    <select class="form-control" id="field_bestCaseComplexity" name="bestCaseComplexity" formControlName="bestCaseComplexity">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="functionClassOption.id === editForm.get('bestCaseComplexity').value?.id ? editForm.get('bestCaseComplexity').value : functionClassOption" *ngFor="let functionClassOption of functionclasses; trackBy: trackFunctionClassById">{{functionClassOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_authors">Author</label>
+                    <select class="form-control" id="field_authors" multiple name="authors" formControlName="authors">
+                        <option [ngValue]="getSelected(editForm.get('authors').value, authorOption)" *ngFor="let authorOption of authors; trackBy: trackAuthorById">{{authorOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_tags">Tag</label>
+                    <select class="form-control" id="field_tags" multiple name="tags" formControlName="tags">
+                        <option [ngValue]="getSelected(editForm.get('tags').value, tagOption)" *ngFor="let tagOption of tags; trackBy: trackTagById">{{tagOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_problems">Problem</label>
+                    <select class="form-control" id="field_problems" multiple name="problems" formControlName="problems">
+                        <option [ngValue]="getSelected(editForm.get('problems').value, problemOption)" *ngFor="let problemOption of problems; trackBy: trackProblemById">{{problemOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
