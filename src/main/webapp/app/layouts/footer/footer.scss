@@ -9,10 +9,6 @@
   padding: 80px 0;
 }
 
-.segment-one {
-  margin: 10px 0;
-}
-
 .segment-two h5:before,
 .segment-three h5:before,
 .segment-four h5:before {
@@ -66,6 +62,20 @@ p {
 h5 {
   color: #fff;
   font-size: 18px;
+  display: inline;
+}
+
+/* ==========================================================================
+Logo styles
+========================================================================== */
+.logo-img {
+  height: 30px;
+  width: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/logo_white.png') no-repeat center center;
+  background-size: contain;
+  margin-bottom: 10px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {

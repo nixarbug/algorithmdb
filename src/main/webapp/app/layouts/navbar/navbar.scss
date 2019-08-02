@@ -16,7 +16,7 @@ Navbar
 }
 
 .navbar {
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 1em;
 
   ul.navbar-nav {
     .nav-item {
@@ -29,8 +29,13 @@ Navbar
   }
 
   .navbar-title {
-    font-size: 30px;
-    font-family: 'Noto Serif', sans-serif;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+  }
+  .navbar-title-green {
+    color: #26ae61;
   }
 }
 
@@ -43,9 +48,9 @@ Logo styles
 ========================================================================== */
 .logo-img {
   height: 45px;
-  width: 45px;
+  width: 36px;
   display: inline-block;
   vertical-align: middle;
-  background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
+  background: url('../../../content/images/logo.png') no-repeat center center;
   background-size: contain;
 }
