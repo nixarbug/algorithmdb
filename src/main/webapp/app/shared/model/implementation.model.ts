@@ -6,7 +6,9 @@ export interface IImplementation {
   id?: number;
   name?: string;
   code?: any;
+  codeMarkdown?: any;
   note?: any;
+  noteMarkdown?: any;
   dateCreated?: Moment;
   dateUpdated?: Moment;
   language?: ILanguage;
@@ -18,7 +20,9 @@ export class Implementation implements IImplementation {
     public id?: number,
     public name?: string,
     public code?: any,
+    public codeMarkdown?: any,
     public note?: any,
+    public noteMarkdown?: any,
     public dateCreated?: Moment,
     public dateUpdated?: Moment,
     public language?: ILanguage,

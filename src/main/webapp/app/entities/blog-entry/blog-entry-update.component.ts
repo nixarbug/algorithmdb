@@ -29,6 +29,7 @@ export class BlogEntryUpdateComponent implements OnInit {
     id: [],
     title: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     content: [],
+    contentMarkdown: [],
     dateCreated: [null, [Validators.required]],
     dateUpdated: [],
     tags: [],
@@ -71,6 +72,7 @@ export class BlogEntryUpdateComponent implements OnInit {
       id: blogEntry.id,
       title: blogEntry.title,
       content: blogEntry.content,
+      contentMarkdown: blogEntry.contentMarkdown,
       dateCreated: blogEntry.dateCreated != null ? blogEntry.dateCreated.format(DATE_TIME_FORMAT) : null,
       dateUpdated: blogEntry.dateUpdated != null ? blogEntry.dateUpdated.format(DATE_TIME_FORMAT) : null,
       tags: blogEntry.tags,
@@ -130,6 +132,7 @@ export class BlogEntryUpdateComponent implements OnInit {
       id: this.editForm.get(['id']).value,
       title: this.editForm.get(['title']).value,
       content: this.editForm.get(['content']).value,
+      contentMarkdown: this.editForm.get(['contentMarkdown']).value,
       dateCreated:
         this.editForm.get(['dateCreated']).value != null ? moment(this.editForm.get(['dateCreated']).value, DATE_TIME_FORMAT) : undefined,
       dateUpdated:

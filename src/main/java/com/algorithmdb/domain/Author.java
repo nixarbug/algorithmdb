@@ -41,6 +41,11 @@ public class Author implements Serializable {
     @Column(name = "info")
     private String info;
 
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "info_markdown")
+    private String infoMarkdown;
+
     @NotNull
     @Column(name = "date_created", nullable = false)
     private Instant dateCreated;
@@ -111,6 +116,14 @@ public class Author implements Serializable {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public String getInfoMarkdown() {
+        return infoMarkdown;
+    }
+
+    public void setInfoMarkdown(String infoMarkdown) {
+        this.infoMarkdown = infoMarkdown;
     }
 
     public Instant getDateCreated() {
@@ -189,6 +202,7 @@ public class Author implements Serializable {
             ", picture='" + getPicture() + "'" +
             ", pictureContentType='" + getPictureContentType() + "'" +
             ", info='" + getInfo() + "'" +
+            ", infoMarkdown='" + getInfoMarkdown() + "'" +
             ", dateCreated='" + getDateCreated() + "'" +
             ", dateUpdated='" + getDateUpdated() + "'" +
             "}";

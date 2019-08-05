@@ -20,6 +20,7 @@
             <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="description"><span>Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descriptionMarkdown"><span>Description Markdown</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dateCreated"><span>Date Created</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dateUpdated"><span>Date Updated</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
@@ -30,6 +31,7 @@
                 <td><a [routerLink]="['/problem', problem.id, 'view' ]">{{problem.id}}</a></td>
                 <td>{{problem.name}}</td>
                 <td>{{problem.description}}</td>
+                <td>{{problem.descriptionMarkdown}}</td>
                 <td>{{problem.dateCreated | date:'medium'}}</td>
                 <td>{{problem.dateUpdated | date:'medium'}}</td>
                 <td class="text-right">

@@ -91,6 +91,18 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @BatchSize(size = 20)
     private Set<Authority> authorities = new HashSet<>();
 
+    @ManyToMany
+    @JoinTable(name = "algorithm_user_rating",
+        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "algorithm_id", referencedColumnName = "id"))
+    private Set<Algorithm> ratedAlgorithms = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(name = "algorithm_user_favourite",
+        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "algorithm_id", referencedColumnName = "id"))
+    private Set<Algorithm> favouriteAlgorithms = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -194,6 +206,22 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
+    }
+
+    public Set<Algorithm> getRatedAlgorithms() {
+        return ratedAlgorithms;
+    }
+
+    public void setRatedAlgorithms(Set<Algorithm> ratedAlgorithms) {
+        this.ratedAlgorithms = ratedAlgorithms;
+    }
+
+    public Set<Algorithm> getFavouriteAlgorithms() {
+        return favouriteAlgorithms;
+    }
+
+    public void setFavouriteAlgorithms(Set<Algorithm> favouriteAlgorithms) {
+        this.favouriteAlgorithms = favouriteAlgorithms;
     }
 
     @Override

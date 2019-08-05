@@ -5,6 +5,7 @@ import { AlgorithmdbSharedModule } from 'app/shared';
 import {
   AlgorithmComponent,
   AlgorithmDetailComponent,
+  AlgorithmInfoComponent,
   AlgorithmUpdateComponent,
   AlgorithmDeletePopupComponent,
   AlgorithmDeleteDialogComponent,
@@ -19,6 +20,7 @@ const ENTITY_STATES = [...algorithmRoute, ...algorithmPopupRoute];
   declarations: [
     AlgorithmComponent,
     AlgorithmDetailComponent,
+    AlgorithmInfoComponent,
     AlgorithmUpdateComponent,
     AlgorithmDeleteDialogComponent,
     AlgorithmDeletePopupComponent

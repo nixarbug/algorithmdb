@@ -20,6 +20,7 @@
             <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="formula"><span>Formula</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="formulaMarkdown"><span>Formula Markdown</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="relativeOrder"><span>Relative Order</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
@@ -29,6 +30,7 @@
                 <td><a [routerLink]="['/function-class', functionClass.id, 'view' ]">{{functionClass.id}}</a></td>
                 <td>{{functionClass.name}}</td>
                 <td>{{functionClass.formula}}</td>
+                <td>{{functionClass.formulaMarkdown}}</td>
                 <td>{{functionClass.relativeOrder}}</td>
                 <td class="text-right">
                     <div class="btn-group">

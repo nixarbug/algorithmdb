@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <!--
+        Added markdown fields to the entity Implementation.
+    -->
+    <changeSet id="20190805131001" author="jhipster">
+
+        <addColumn
+                schemaName="public"
+                tableName="implementation">
+
+            <column name="code_markdown" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="note_markdown" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+
+
+        </addColumn>
+
+    </changeSet>
+
+</databaseChangeLog>

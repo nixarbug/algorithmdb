@@ -27,6 +27,7 @@ export class AuthorUpdateComponent implements OnInit {
     picture: [],
     pictureContentType: [],
     info: [],
+    infoMarkdown: [],
     dateCreated: [null, [Validators.required]],
     dateUpdated: []
   });
@@ -62,6 +63,7 @@ export class AuthorUpdateComponent implements OnInit {
       picture: author.picture,
       pictureContentType: author.pictureContentType,
       info: author.info,
+      infoMarkdown: author.infoMarkdown,
       dateCreated: author.dateCreated != null ? author.dateCreated.format(DATE_TIME_FORMAT) : null,
       dateUpdated: author.dateUpdated != null ? author.dateUpdated.format(DATE_TIME_FORMAT) : null
     });
@@ -131,6 +133,7 @@ export class AuthorUpdateComponent implements OnInit {
       pictureContentType: this.editForm.get(['pictureContentType']).value,
       picture: this.editForm.get(['picture']).value,
       info: this.editForm.get(['info']).value,
+      infoMarkdown: this.editForm.get(['infoMarkdown']).value,
       dateCreated:
         this.editForm.get(['dateCreated']).value != null ? moment(this.editForm.get(['dateCreated']).value, DATE_TIME_FORMAT) : undefined,
       dateUpdated:

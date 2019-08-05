@@ -20,6 +20,7 @@
             <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="title"><span>Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="content"><span>Content</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contentMarkdown"><span>Content Markdown</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dateCreated"><span>Date Created</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dateUpdated"><span>Date Updated</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="blog.name"><span>Blog</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -31,6 +32,7 @@
                 <td><a [routerLink]="['/blog-entry', blogEntry.id, 'view' ]">{{blogEntry.id}}</a></td>
                 <td>{{blogEntry.title}}</td>
                 <td>{{blogEntry.content}}</td>
+                <td>{{blogEntry.contentMarkdown}}</td>
                 <td>{{blogEntry.dateCreated | date:'medium'}}</td>
                 <td>{{blogEntry.dateUpdated | date:'medium'}}</td>
                 <td>

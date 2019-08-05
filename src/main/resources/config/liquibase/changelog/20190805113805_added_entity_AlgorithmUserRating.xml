@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <!--
+        Added the entity AlgorithmUserRating.
+    -->
+    <changeSet id="20190805113805" author="jhipster">
+        <createTable tableName="algorithm_user_rating">
+
+            <column name="algorithm_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="rating" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="date_created" type="datetime">
+                <constraints nullable="false" />
+            </column>
+
+        </createTable>
+
+        <addPrimaryKey columnNames="algorithm_id, user_id" tableName="algorithm_user_rating"/>
+
+    </changeSet>
+
+</databaseChangeLog>

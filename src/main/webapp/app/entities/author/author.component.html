@@ -21,6 +21,7 @@
             <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="picture"><span>Picture</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="info"><span>Info</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="infoMarkdown"><span>Info Markdown</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dateCreated"><span>Date Created</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dateUpdated"><span>Date Updated</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
@@ -37,6 +38,7 @@
                     <span *ngIf="author.picture">{{author.pictureContentType}}, {{byteSize(author.picture)}}</span>
                 </td>
                 <td>{{author.info}}</td>
+                <td>{{author.infoMarkdown}}</td>
                 <td>{{author.dateCreated | date:'medium'}}</td>
                 <td>{{author.dateUpdated | date:'medium'}}</td>
                 <td class="text-right">

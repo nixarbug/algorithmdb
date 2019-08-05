@@ -34,6 +34,11 @@ public class BlogEntry implements Serializable {
     @Column(name = "content")
     private String content;
 
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "content_markdown")
+    private String contentMarkdown;
+
     @NotNull
     @Column(name = "date_created", nullable = false)
     private Instant dateCreated;
@@ -84,6 +89,14 @@ public class BlogEntry implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getContentMarkdown() {
+        return contentMarkdown;
+    }
+
+    public void setContentMarkdown(String contentMarkdown) {
+        this.contentMarkdown = contentMarkdown;
     }
 
     public Instant getDateCreated() {
@@ -173,6 +186,7 @@ public class BlogEntry implements Serializable {
             "id=" + getId() +
             ", title='" + getTitle() + "'" +
             ", content='" + getContent() + "'" +
+            ", contentMarkdown='" + getContentMarkdown() + "'" +
             ", dateCreated='" + getDateCreated() + "'" +
             ", dateUpdated='" + getDateUpdated() + "'" +
             "}";

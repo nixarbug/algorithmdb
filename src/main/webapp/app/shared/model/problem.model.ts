@@ -6,6 +6,7 @@ export interface IProblem {
   id?: number;
   name?: string;
   description?: string;
+  descriptionMarkdown?: string;
   dateCreated?: Moment;
   dateUpdated?: Moment;
   problemGroups?: IProblemGroup[];
@@ -17,6 +18,7 @@ export class Problem implements IProblem {
     public id?: number,
     public name?: string,
     public description?: string,
+    public descriptionMarkdown?: string,
     public dateCreated?: Moment,
     public dateUpdated?: Moment,
     public problemGroups?: IProblemGroup[],

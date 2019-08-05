@@ -40,9 +40,25 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" for="field_codeMarkdown">Code Markdown</label>
+                    <textarea class="form-control" name="codeMarkdown" id="field_codeMarkdown"
+                              formControlName="codeMarkdown"></textarea>
+                    <div *ngIf="editForm.get('codeMarkdown').invalid && (editForm.get('codeMarkdown').dirty || editForm.get('codeMarkdown').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeMarkdown').errors.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" for="field_note">Note</label>
                     <textarea class="form-control" name="note" id="field_note"
                               formControlName="note"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_noteMarkdown">Note Markdown</label>
+                    <textarea class="form-control" name="noteMarkdown" id="field_noteMarkdown"
+                              formControlName="noteMarkdown"></textarea>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_dateCreated">Date Created</label>

@@ -1,4 +1,5 @@
 package com.algorithmdb.domain;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Type;
 
@@ -7,6 +8,7 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -46,8 +48,18 @@ public class Algorithm implements Serializable {
 
     @Lob
     @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "idea_markdown")
+    private String ideaMarkdown;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "description")
     private String description;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "description_markdown")
+    private String descriptionMarkdown;
 
     @Lob
     @Type(type = "org.hibernate.type.TextType")
@@ -56,13 +68,28 @@ public class Algorithm implements Serializable {
 
     @Lob
     @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "real_life_use_markdown")
+    private String realLifeUseMarkdown;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "pseudocode")
     private String pseudocode;
 
     @Lob
     @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "pseudocode_markdown")
+    private String pseudocodeMarkdown;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "flowchart")
     private String flowchart;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "flowchart_markdown")
+    private String flowchartMarkdown;
 
     @Lob
     @Column(name = "flowchart_image")
@@ -78,8 +105,18 @@ public class Algorithm implements Serializable {
 
     @Lob
     @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "complexity_analysis_markdown")
+    private String complexityAnalysisMarkdown;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "correctness_proof")
     private String correctnessProof;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "correctness_proof_markdown")
+    private String correctnessProofMarkdown;
 
     @Column(name = "average_stars")
     private Float averageStars;
@@ -129,6 +166,14 @@ public class Algorithm implements Serializable {
                joinColumns = @JoinColumn(name = "algorithm_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "problem_id", referencedColumnName = "id"))
     private Set<Problem> problems = new HashSet<>();
+
+    @ManyToMany(mappedBy = "ratedAlgorithms")
+    @JsonIgnore
+    private Set<User> ratingUsers = new HashSet<>();
+
+    @ManyToMany(mappedBy = "favouriteAlgorithms")
+    @JsonIgnore
+    private Set<User> favouritingUsers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -498,6 +543,79 @@ public class Algorithm implements Serializable {
     public void setProblems(Set<Problem> problems) {
         this.problems = problems;
     }
+
+    public Set<User> getRatingUsers() {
+        return ratingUsers;
+    }
+
+    public void setRatingUsers(Set<User> ratingUsers) {
+        this.ratingUsers = ratingUsers;
+    }
+
+    public Set<User> getFavouritingUsers() {
+        return favouritingUsers;
+    }
+
+    public void setFavouritingUsers(Set<User> favouritingUsers) {
+        this.favouritingUsers = favouritingUsers;
+    }
+
+    public String getIdeaMarkdown() {
+        return ideaMarkdown;
+    }
+
+    public void setIdeaMarkdown(String ideaMarkdown) {
+        this.ideaMarkdown = ideaMarkdown;
+    }
+
+    public String getDescriptionMarkdown() {
+        return descriptionMarkdown;
+    }
+
+    public void setDescriptionMarkdown(String descriptionMarkdown) {
+        this.descriptionMarkdown = descriptionMarkdown;
+    }
+
+    public String getRealLifeUseMarkdown() {
+        return realLifeUseMarkdown;
+    }
+
+    public void setRealLifeUseMarkdown(String realLifeUseMarkdown) {
+        this.realLifeUseMarkdown = realLifeUseMarkdown;
+    }
+
+    public String getPseudocodeMarkdown() {
+        return pseudocodeMarkdown;
+    }
+
+    public void setPseudocodeMarkdown(String pseudocodeMarkdown) {
+        this.pseudocodeMarkdown = pseudocodeMarkdown;
+    }
+
+    public String getFlowchartMarkdown() {
+        return flowchartMarkdown;
+    }
+
+    public void setFlowchartMarkdown(String flowchartMarkdown) {
+        this.flowchartMarkdown = flowchartMarkdown;
+    }
+
+    public String getComplexityAnalysisMarkdown() {
+        return complexityAnalysisMarkdown;
+    }
+
+    public void setComplexityAnalysisMarkdown(String complexityAnalysisMarkdown) {
+        this.complexityAnalysisMarkdown = complexityAnalysisMarkdown;
+    }
+
+    public String getCorrectnessProofMarkdown() {
+        return correctnessProofMarkdown;
+    }
+
+    public void setCorrectnessProofMarkdown(String correctnessProofMarkdown) {
+        this.correctnessProofMarkdown = correctnessProofMarkdown;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -519,24 +637,34 @@ public class Algorithm implements Serializable {
     @Override
     public String toString() {
         return "Algorithm{" +
-            "id=" + getId() +
-            ", name='" + getName() + "'" +
-            ", input='" + getInput() + "'" +
-            ", output='" + getOutput() + "'" +
-            ", idea='" + getIdea() + "'" +
-            ", description='" + getDescription() + "'" +
-            ", realLifeUse='" + getRealLifeUse() + "'" +
-            ", pseudocode='" + getPseudocode() + "'" +
-            ", flowchart='" + getFlowchart() + "'" +
-            ", flowchartImage='" + getFlowchartImage() + "'" +
-            ", flowchartImageContentType='" + getFlowchartImageContentType() + "'" +
-            ", complexityAnalysis='" + getComplexityAnalysis() + "'" +
-            ", correctnessProof='" + getCorrectnessProof() + "'" +
-            ", averageStars=" + getAverageStars() +
-            ", totalFavs=" + getTotalFavs() +
-            ", weightedRating=" + getWeightedRating() +
-            ", dateCreated='" + getDateCreated() + "'" +
-            ", dateUpdated='" + getDateUpdated() + "'" +
-            "}";
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", input='" + input + '\'' +
+            ", output='" + output + '\'' +
+            ", idea='" + idea + '\'' +
+            ", ideaMarkdown='" + ideaMarkdown + '\'' +
+            ", description='" + description + '\'' +
+            ", descriptionMarkdown='" + descriptionMarkdown + '\'' +
+            ", realLifeUse='" + realLifeUse + '\'' +
+            ", realLifeUseMarkdown='" + realLifeUseMarkdown + '\'' +
+            ", pseudocode='" + pseudocode + '\'' +
+            ", pseudocodeMarkdown='" + pseudocodeMarkdown + '\'' +
+            ", flowchart='" + flowchart + '\'' +
+            ", flowchartMarkdown='" + flowchartMarkdown + '\'' +
+            ", flowchartImage=" + Arrays.toString(flowchartImage) +
+            ", flowchartImageContentType='" + flowchartImageContentType + '\'' +
+            ", complexityAnalysis='" + complexityAnalysis + '\'' +
+            ", complexityAnalysisMarkdown='" + complexityAnalysisMarkdown + '\'' +
+            ", correctnessProof='" + correctnessProof + '\'' +
+            ", correctnessProofMarkdown='" + correctnessProofMarkdown + '\'' +
+            ", averageStars=" + averageStars +
+            ", totalFavs=" + totalFavs +
+            ", weightedRating=" + weightedRating +
+            ", dateCreated=" + dateCreated +
+            ", dateUpdated=" + dateUpdated +
+            ", worstCaseComplexity=" + worstCaseComplexity +
+            ", averageCaseComplexity=" + averageCaseComplexity +
+            ", bestCaseComplexity=" + bestCaseComplexity +
+            '}';
     }
 }

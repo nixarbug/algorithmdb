@@ -11,14 +11,21 @@ export interface IAlgorithm {
   input?: string;
   output?: string;
   idea?: any;
+  ideaMarkdown?: any;
   description?: any;
+  descriptionMarkdown?: any;
   realLifeUse?: any;
+  realLifeUseMarkdown?: any;
   pseudocode?: any;
+  pseudocodeMarkdown?: any;
   flowchart?: any;
+  flowchartMarkdown?: any;
   flowchartImageContentType?: string;
   flowchartImage?: any;
   complexityAnalysis?: any;
+  complexityAnalysisMarkdown?: any;
   correctnessProof?: any;
+  correctnessProofMarkdown?: any;
   averageStars?: number;
   totalFavs?: number;
   weightedRating?: number;
@@ -40,14 +47,21 @@ export class Algorithm implements IAlgorithm {
     public input?: string,
     public output?: string,
     public idea?: any,
+    public ideaMarkdown?: any,
     public description?: any,
+    public descriptionMarkdown?: any,
     public realLifeUse?: any,
+    public realLifeUseMarkdown?: any,
     public pseudocode?: any,
+    public pseudocodeMarkdown?: any,
     public flowchart?: any,
+    public flowchartMarkdown?: any,
     public flowchartImageContentType?: string,
     public flowchartImage?: any,
     public complexityAnalysis?: any,
+    public complexityAnalysisMarkdown?: any,
     public correctnessProof?: any,
+    public correctnessProofMarkdown?: any,
     public averageStars?: number,
     public totalFavs?: number,
     public weightedRating?: number,

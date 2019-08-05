@@ -32,6 +32,17 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" for="field_formulaMarkdown">Formula Markdown</label>
+                    <textarea class="form-control" name="formulaMarkdown" id="field_formulaMarkdown"
+                              formControlName="formulaMarkdown"></textarea>
+                    <div *ngIf="editForm.get('formulaMarkdown').invalid && (editForm.get('formulaMarkdown').dirty || editForm.get('formulaMarkdown').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('formulaMarkdown').errors.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" for="field_relativeOrder">Relative Order</label>
                     <input type="number" class="form-control" name="relativeOrder" id="field_relativeOrder"
                            formControlName="relativeOrder"/>

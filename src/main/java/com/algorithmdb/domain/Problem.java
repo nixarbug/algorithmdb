@@ -33,6 +33,10 @@ public class Problem implements Serializable {
     @Column(name = "description", length = 1000, nullable = false)
     private String description;
 
+    @Size(max = 1000)
+    @Column(name = "description_markdown", length = 1000, nullable = false)
+    private String descriptionMarkdown;
+
     @NotNull
     @Column(name = "date_created", nullable = false)
     private Instant dateCreated;
@@ -83,6 +87,14 @@ public class Problem implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getDescriptionMarkdown() {
+        return descriptionMarkdown;
+    }
+
+    public void setDescriptionMarkdown(String descriptionMarkdown) {
+        this.descriptionMarkdown = descriptionMarkdown;
     }
 
     public Instant getDateCreated() {
@@ -184,6 +196,7 @@ public class Problem implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", description='" + getDescription() + "'" +
+            ", descriptionMarkdown='" + getDescriptionMarkdown() + "'" +
             ", dateCreated='" + getDateCreated() + "'" +
             ", dateUpdated='" + getDateUpdated() + "'" +
             "}";

@@ -29,6 +29,7 @@ export class ProblemUpdateComponent implements OnInit {
     id: [],
     name: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(500)]],
     description: [null, [Validators.required, Validators.maxLength(1000)]],
+    descriptionMarkdown: [null, [Validators.required, Validators.maxLength(1000)]],
     dateCreated: [null, [Validators.required]],
     dateUpdated: [],
     problemGroups: []
@@ -69,6 +70,7 @@ export class ProblemUpdateComponent implements OnInit {
       id: problem.id,
       name: problem.name,
       description: problem.description,
+      descriptionMarkdown: problem.descriptionMarkdown,
       dateCreated: problem.dateCreated != null ? problem.dateCreated.format(DATE_TIME_FORMAT) : null,
       dateUpdated: problem.dateUpdated != null ? problem.dateUpdated.format(DATE_TIME_FORMAT) : null,
       problemGroups: problem.problemGroups
@@ -95,6 +97,7 @@ export class ProblemUpdateComponent implements OnInit {
       id: this.editForm.get(['id']).value,
       name: this.editForm.get(['name']).value,
       description: this.editForm.get(['description']).value,
+      descriptionMarkdown: this.editForm.get(['descriptionMarkdown']).value,
       dateCreated:
         this.editForm.get(['dateCreated']).value != null ? moment(this.editForm.get(['dateCreated']).value, DATE_TIME_FORMAT) : undefined,
       dateUpdated:

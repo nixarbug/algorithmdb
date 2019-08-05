@@ -18,6 +18,7 @@ export class FunctionClassUpdateComponent implements OnInit {
     id: [],
     name: [null, [Validators.required]],
     formula: [null, [Validators.required]],
+    formulaMarkdown: [null, [Validators.required]],
     relativeOrder: [null, [Validators.required]]
   });
 
@@ -41,6 +42,7 @@ export class FunctionClassUpdateComponent implements OnInit {
       id: functionClass.id,
       name: functionClass.name,
       formula: functionClass.formula,
+      formulaMarkdown: functionClass.formulaMarkdown,
       relativeOrder: functionClass.relativeOrder
     });
   }
@@ -97,6 +99,7 @@ export class FunctionClassUpdateComponent implements OnInit {
       id: this.editForm.get(['id']).value,
       name: this.editForm.get(['name']).value,
       formula: this.editForm.get(['formula']).value,
+      formulaMarkdown: this.editForm.get(['formulaMarkdown']).value,
       relativeOrder: this.editForm.get(['relativeOrder']).value
     };
   }

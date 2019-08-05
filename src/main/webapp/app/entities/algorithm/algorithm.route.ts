@@ -9,6 +9,7 @@ import { Algorithm } from 'app/shared/model/algorithm.model';
 import { AlgorithmService } from './algorithm.service';
 import { AlgorithmComponent } from './algorithm.component';
 import { AlgorithmDetailComponent } from './algorithm-detail.component';
+import { AlgorithmInfoComponent } from './algorithm-info.component';
 import { AlgorithmUpdateComponent } from './algorithm-update.component';
 import { AlgorithmDeletePopupComponent } from './algorithm-delete-dialog.component';
 import { IAlgorithm } from 'app/shared/model/algorithm.model';
@@ -39,6 +40,17 @@ export const algorithmRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
+      pageTitle: 'Algorithms'
+    },
+    canActivate: [UserRouteAccessService]
+  },
+  {
+    path: 'view/:id',
+    component: AlgorithmInfoComponent,
+    resolve: {
+      algorithm: AlgorithmResolve
+    },
+    data: {
       pageTitle: 'Algorithms'
     },
     canActivate: [UserRouteAccessService]

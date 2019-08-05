@@ -30,6 +30,11 @@ public class FunctionClass implements Serializable {
     @Column(name = "formula", nullable = false)
     private String formula;
 
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "formula_markdown", nullable = false)
+    private String formulaMarkdown;
+
     @NotNull
     @Column(name = "relative_order", nullable = false)
     private Integer relativeOrder;
@@ -69,6 +74,14 @@ public class FunctionClass implements Serializable {
         this.formula = formula;
     }
 
+    public String getFormulaMarkdown() {
+        return formulaMarkdown;
+    }
+
+    public void setFormulaMarkdown(String formulaMarkdown) {
+        this.formulaMarkdown = formulaMarkdown;
+    }
+
     public Integer getRelativeOrder() {
         return relativeOrder;
     }
@@ -105,6 +118,7 @@ public class FunctionClass implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", formula='" + getFormula() + "'" +
+            ", formulaMarkdown='" + getFormulaMarkdown() + "'" +
             ", relativeOrder=" + getRelativeOrder() +
             "}";
     }

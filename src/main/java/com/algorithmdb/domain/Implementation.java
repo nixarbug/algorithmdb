@@ -35,8 +35,18 @@ public class Implementation implements Serializable {
 
     @Lob
     @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "code_markdown", nullable = false)
+    private String codeMarkdown;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "note")
     private String note;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "note_markdown")
+    private String noteMarkdown;
 
     @NotNull
     @Column(name = "date_created", nullable = false)
@@ -152,6 +162,23 @@ public class Implementation implements Serializable {
     public void setAlgorithm(Algorithm algorithm) {
         this.algorithm = algorithm;
     }
+
+    public String getCodeMarkdown() {
+        return codeMarkdown;
+    }
+
+    public void setCodeMarkdown(String codeMarkdown) {
+        this.codeMarkdown = codeMarkdown;
+    }
+
+    public String getNoteMarkdown() {
+        return noteMarkdown;
+    }
+
+    public void setNoteMarkdown(String noteMarkdown) {
+        this.noteMarkdown = noteMarkdown;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -176,7 +203,9 @@ public class Implementation implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", code='" + getCode() + "'" +
+            ", codeMarkdown='" + getCodeMarkdown() + "'" +
             ", note='" + getNote() + "'" +
+            ", noteMarkdown='" + getNoteMarkdown() + "'" +
             ", dateCreated='" + getDateCreated() + "'" +
             ", dateUpdated='" + getDateUpdated() + "'" +
             "}";

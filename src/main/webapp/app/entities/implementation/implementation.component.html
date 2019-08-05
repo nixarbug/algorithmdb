@@ -20,7 +20,9 @@
             <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="code"><span>Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeMarkdown"><span>Code Markdown</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="note"><span>Note</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="noteMarkdown"><span>Note Markdown</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dateCreated"><span>Date Created</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dateUpdated"><span>Date Updated</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="language.name"><span>Language</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -33,7 +35,9 @@
                 <td><a [routerLink]="['/implementation', implementation.id, 'view' ]">{{implementation.id}}</a></td>
                 <td>{{implementation.name}}</td>
                 <td>{{implementation.code}}</td>
+                <td>{{implementation.codeMarkdown}}</td>
                 <td>{{implementation.note}}</td>
+                <td>{{implementation.noteMarkdown}}</td>
                 <td>{{implementation.dateCreated | date:'medium'}}</td>
                 <td>{{implementation.dateUpdated | date:'medium'}}</td>
                 <td>

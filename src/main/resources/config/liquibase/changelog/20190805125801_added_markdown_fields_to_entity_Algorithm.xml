@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <!--
+        Added markdown fields to the entity Algorithm.
+    -->
+    <changeSet id="20190805125801" author="jhipster">
+
+        <addColumn
+                schemaName="public"
+                tableName="algorithm">
+
+            <column name="idea_markdown" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="description_markdown" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="real_life_use_markdown" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="pseudocode_markdown" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="flowchart_markdown" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="complexity_analysis_markdown" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="correctness_proof_markdown" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+
+
+        </addColumn>
+
+    </changeSet>
+
+</databaseChangeLog>

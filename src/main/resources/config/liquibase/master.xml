@@ -30,5 +30,15 @@
     <include file="config/liquibase/changelog/20190731093307_added_entity_constraints_Implementation.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190731093310_added_entity_constraints_Problem.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190731093312_added_entity_constraints_BlogEntry.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805113805_added_entity_AlgorithmUserRating.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805115005_added_entity_constraints_AlgorithmUserRating.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805123905_added_entity_AlgorithmUserFavourite.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805124105_added_entity_constraints_AlgorithmUserFavourite.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805125801_added_markdown_fields_to_entity_Algorithm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805131001_added_markdown_fields_to_entity_Implementation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805163101_added_markdown_fields_to_entity_Author.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805165500_added_markdown_fields_to_entity_Problem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805172000_added_markdown_fields_to_entity_FunctionClass.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190805172300_added_markdown_fields_to_entity_BlogEntry.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
