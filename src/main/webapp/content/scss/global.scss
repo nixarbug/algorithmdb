@@ -1,6 +1,9 @@
 @import 'bootstrap-variables';
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
+@import 'markdown';
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+@import '~prismjs/themes/prism';
 
 /* ==============================================================
 Bootstrap tweaks
@@ -21,12 +24,11 @@ body {
 
 a {
   color: #26ae61;
-  // color: #4275af;
   cursor: pointer;
 }
 
 a:hover {
-  color: #32e680;
+  color: #4a90e2;
   text-decoration: none;
 }
 
@@ -51,8 +53,8 @@ a:hover {
   background-position: 50%;
   background-size: cover;
   margin-bottom: 35px;
-  // background: #ffd200;
-  background-image: linear-gradient(-229deg, #29323c, #485563);
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+
   .search-box {
     display: block;
     width: 100%;

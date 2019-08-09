@@ -241,6 +241,7 @@ dependencies {
     }
     implementation "io.springfox:springfox-bean-validators"
     implementation "org.postgresql:postgresql"
+    compile group: 'com.vladsch.flexmark', name: 'flexmark-all', version: '0.50.26'
     liquibaseRuntime "org.postgresql:postgresql"
     implementation "org.mapstruct:mapstruct:${mapstruct_version}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstruct_version}"

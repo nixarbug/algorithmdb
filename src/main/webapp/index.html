@@ -13,10 +13,18 @@
     <link rel="stylesheet" href="content/css/loading.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+      });
+    </script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
 </head>
 <body>
-    <!--[if lt IE 9]>
+ <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <jhi-main>
@@ -106,5 +114,16 @@
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>-->
+<!--    <script type="text/javascript">-->
+<!--    setInterval(showMath,3000);-->
+<!--    function showMath() {-->
+<!--        console.log('hello')-->
+<!--           if (window.MathJax) {-->
+<!--               MathJax.Hub.Queue(-->
+<!--                   ["Typeset",MathJax.Hub]-->
+<!--               );-->
+<!--           }-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>

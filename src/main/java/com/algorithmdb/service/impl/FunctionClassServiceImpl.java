@@ -3,6 +3,7 @@ package com.algorithmdb.service.impl;
 import com.algorithmdb.service.FunctionClassService;
 import com.algorithmdb.domain.FunctionClass;
 import com.algorithmdb.repository.FunctionClassRepository;
+import com.algorithmdb.service.MarkdownService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,8 +25,11 @@ public class FunctionClassServiceImpl implements FunctionClassService {
 
     private final FunctionClassRepository functionClassRepository;
 
-    public FunctionClassServiceImpl(FunctionClassRepository functionClassRepository) {
+    private final MarkdownService markdownService;
+
+    public FunctionClassServiceImpl(FunctionClassRepository functionClassRepository, MarkdownService markdownService) {
         this.functionClassRepository = functionClassRepository;
+        this.markdownService = markdownService;
     }
 
     /**
@@ -37,6 +41,7 @@ public class FunctionClassServiceImpl implements FunctionClassService {
     @Override
     public FunctionClass save(FunctionClass functionClass) {
         log.debug("Request to save FunctionClass : {}", functionClass);
+        functionClass.setFormula(markdownService.generateHtmlFromMarkdown(functionClass.getFormulaMarkdown()));
         return functionClassRepository.save(functionClass);
     }
 

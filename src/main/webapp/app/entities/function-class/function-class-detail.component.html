@@ -2,6 +2,9 @@
     <div class="col-8">
         <div *ngIf="functionClass">
             <h2><span>Function Class</span> {{functionClass.id}}</h2>
+            <iframe width="800" height="500" frameborder="0"
+                    src="http://pythontutor.com/iframe-embed.html#code=a%20%3D%2033%0Ab%20%3D%20200%0Aif%20b%20%3E%20a%3A%0A%20%20print%28%22b%20is%20greater%20than%20a%22%29&cumulative=false&py=2&curInstr=3">
+            </iframe>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
@@ -11,7 +14,7 @@
                 </dd>
                 <dt><span>Formula</span></dt>
                 <dd>
-                    <span>{{functionClass.formula}}</span>
+                    <span [innerHTML]="functionClass.formula"></span>
                 </dd>
                 <dt><span>Formula Markdown</span></dt>
                 <dd>

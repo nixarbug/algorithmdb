@@ -48,6 +48,7 @@
   text-align: center;
   background: #000;
   line-height: 75px;
+  margin: 0;
 }
 
 .segment-three a:hover {
@@ -69,11 +70,11 @@ h5 {
 Logo styles
 ========================================================================== */
 .logo-img {
-  height: 30px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   display: inline-block;
   vertical-align: middle;
-  background: url('../../../content/images/logo_white.png') no-repeat center center;
+  background: url('../../../content/images/glider_white.png') no-repeat center center;
   background-size: contain;
   margin-bottom: 10px;
 }

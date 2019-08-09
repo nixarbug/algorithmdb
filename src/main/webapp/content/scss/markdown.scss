@@ -1,0 +1,48 @@
+p,
+blockquote,
+ul,
+ol,
+dl,
+li,
+table,
+pre {
+  margin: 15px 0;
+}
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777;
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+code,
+tt {
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+}
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+  padding: 0.5em;
+}
+
+pre {
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+}
